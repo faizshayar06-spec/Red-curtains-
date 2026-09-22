@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- INTRO VIDEO / CURTAIN OVERLAY --- */
+#intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease;
+}
+
+#intro-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.skip-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(212, 175, 55, 0.8);
+    color: #000;
+    border: none;
+    padding: 10px 22px;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    z-index: 10000;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    transition: transform 0.2s;
+}
+
+.skip-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- MAIN WEBSITE CONTAINER --- */
+#main-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s ease;
+}
+
+#main-content.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.hero h3 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 4px;
+    color: #d4af37;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #ffffff;
+    margin: 10px 0;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
+
+.hero .date-badge {
+    margin-top: 25px;
+    border: 1px solid #d4af37;
+    padding: 12px 30px;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+    background: rgba(212, 175, 55, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 4px;
+}
+
+/* Countdown Section */
+.countdown-section {
+    padding: 60px 20px;
+    background: #111827;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.countdown-section h2 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    background: #1f2937;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 15px 20px;
+    border-radius: 8px;
+    min-width: 90px;
+}
+
+.time-box span {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #d4af37;
+    font-family: 'Cinzel', serif;
+}
+
+.time-box label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #9ca3af;
+}
+
+/* Scratch Card Section */
+.scratch-section {
+    padding: 80px 20px;
+    background: #0b0f19;
+    text-align: center;
+}
+
+.scratch-section h2 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.scratch-container {
+    position: relative;
+    width: 320px;
+    height: 160px;
+    margin: 30px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 2px solid #d4af37;
+}
+
+.scratch-card-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1f2937, #111827);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    touch-action: none;
+}
+
+/* Events / Timeline */
+.events-section {
+    padding: 80px 20px;
+    background: #111827;
+    text-align: center;
+}
+
+.events-section h2 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.event-card {
+    background: #1f2937;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 40px 30px;
+    border-radius: 12px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    border-color: #d4af37;
+}
+
+.event-card h3 {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.event-card p {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    background: #0b0f19;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    letter-spacing: 2px;
+}
+
